@@ -10,15 +10,15 @@ export default async function handler(req, res) {
   const questions = await Question.find(); // []? => It is a mongoose Collection
 
   // 3. Translate Collection to Array
-  // const questionsArray = questions.map((question) => {
-  //   return {
-  //     id: question.id,
-  //     name: question.name,
-  //     text: question.text,
-  //   };
-  // });
+  const questionsArray = questions.map((question) => {
+    return {
+      id: question._id,
+      name: question.name,
+      text: question.text,
+    };
+  });
 
-  console.log(questions);
+  console.log(questionsArray);
 
-  res.status(200).json(questions);
+  res.status(200).json(questionsArray);
 }
